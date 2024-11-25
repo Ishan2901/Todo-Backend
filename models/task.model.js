@@ -16,10 +16,10 @@ const TaskSchema = new mongoose.Schema({
        enum : ['TODO', 'DONE'],
        default : 'TODO'
     },
-    // linkedFileType : {
-    //    type : Buffer,
-    //    contentType : String
-    // },
+    linkedFileType : {
+       type : Buffer,
+       contentType : String
+    },
     createdOn : {
        type : Date,
        required : true,

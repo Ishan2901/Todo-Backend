@@ -5,6 +5,8 @@ const createTaskController = async (req, res) => {
     try {
     const { error, value } = taskValidationSchema.validate(req.body);
     if(error) return res.statsu(400).json({ message : error.details[0].message });
+    const file = req.file ? { data : req.file.buffer, contentType : req.file.mimeType } : null;
+    if(file) value.linkedFile = file;
 
     const newTask = await createTask(value);
     res.status(201).json(newTask);
